@@ -1,0 +1,164 @@
+@use 'colors';
+
+@font-face {
+  font-family: 'Segoe MDL2 Assets';
+  src: url('Segoe\ MDL2\ Assets.ttf');
+}
+
+@mixin border-radius-top {
+  border-radius: 5px 5px 0 0;
+}
+
+.chat {
+  //Posicionamento do chat na tela
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+
+  height: 80vh;
+  max-height: 500px;
+  width: 80%;
+  max-width: 380px;
+  background: transparent;
+  box-shadow: 1em 0em 4em rgba($color: #000000, $alpha: 0.05);
+
+  display: flex;
+  flex-direction: column;
+}
+
+// Header
+.chat-header {
+  @include border-radius-top;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: white;
+  background: colors.$chat-header-color;
+
+  padding: 1em 1em;
+  z-index: 1;
+
+  .chat-status {
+    &--online {
+      width: 12px;
+      height: 12px;
+      background: rgb(40, 241, 40);
+
+      border-radius: 12px;
+    }
+    &--ausent {
+      width: 12px;
+      height: 12px;
+      background: orangered;
+
+      border-radius: 12px;
+    }
+    &--offline {
+      width: 12px;
+      height: 12px;
+      background: grey;
+
+      border-radius: 12px;
+    }
+  }
+
+  .chat-user-name {
+    font-weight: 400;
+    text-align: left;
+    flex-grow: 1;
+    padding-left: 10px;
+    font-size: large;
+  }
+  .chat-button-close {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    font-family: 'Segoe MDL2 Assets';
+    font-size: 1.2em;
+    font-weight: 400;
+    color: white;
+    &::before {
+      content: '';
+    }
+  }
+}
+
+// Body
+.chat-messages {
+  flex-grow: 1;
+  overflow-x: none;
+  overflow-y: auto;
+
+  padding: 0 20px;
+  position: relative;
+  z-index: 0;
+
+  background: colors.$chat-background-color;
+}
+
+.message-left,
+.message-right {
+  display: flex;
+  width: 100%;
+}
+
+.message-item {
+  width: fit-content;
+  color: colors.$chat-font-color;
+  padding: 0.8em 0.8em;
+  margin: 0.4em 0;
+  border-radius: 0.1em;
+  max-width: 85%;
+}
+
+.message-left {
+  justify-content: start;
+  .message-item {
+    background: colors.$chat-message-left-color;
+  }
+}
+
+.message-right {
+  justify-content: flex-end;
+  .message-item {
+    background: colors.$chat-message-right-color;
+  }
+}
+
+// Bottom
+.chat-input-message {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  position: relative;
+
+  input {
+    padding: 8px 30px;
+    width: 100%;
+    height: 50px;
+    max-lines: 10;
+  }
+
+  button {
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.4em;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    bottom: auto;
+    font-family: 'Segoe MDL2 Assets';
+    &::before {
+      content: '';
+      color: #8f8f8f;
+    }
+    &:hover::before {
+      color: #353535;
+    }
+  }
+}

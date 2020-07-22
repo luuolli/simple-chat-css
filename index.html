@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="chat_style.css" />
+    <script src="js/send-message.js" async></script>
+    <style>
+      html {
+        background: #a6cbf5;
+        padding: 10px;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat">
+      <div class="chat-header">
+        <div class="chat-status--online"></div>
+        <div class="chat-user-name">Usuário</div>
+        <button class="chat-button-close" type="close"></button>
+      </div>
+      <div id="chat-messages-container" class="chat-messages">
+        <div class="message-left">
+          <div class="message-item">
+            <span><strong>Usuário</strong></span
+            ><br />
+            <span>mensagem</span>
+          </div>
+        </div>
+        <div class="message-right">
+          <div class="message-item">
+            <span><strong>Usuário</strong></span
+            ><br />
+            <span
+              >Mensagem enviada para fulado de tal com sobrenome tal com
+              informação tal.</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="chat-input-message">
+        <input id="chat-input-message" type="text" name="" id="" />
+        <button id="chat-send-message-button" type="submit"></button>
+      </div>
+    </div>
+  </body>
+</html>
